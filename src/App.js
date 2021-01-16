@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SideBar from './components/SideBar';
+import Home from './components/Home';
+import DropDownPage from './components/DropDownPage';
+import ModalPage from './components/ModalPage';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {/* <Header /> */}
+      <div className='App'>
+        <SideBar />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/dropdownpage' component={DropDownPage} />
+          <Route exact path='/modalpage' component={ModalPage} />
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
